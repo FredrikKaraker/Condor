@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const tournaments = [
+  {
+    year: 2024,
+    title: 'Inaugural Edition',
+    location: 'TBD Golf Club',
+    winner: 'TBD',
+    runnerUp: 'TBD',
+    notes: 'The very first Condor Gilligan Invitational.',
+  },
+];
+---
+
+<Layout title="History">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <span class="text-gold-600 text-sm font-medium tracking-[0.2em] uppercase">The Legacy</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white mt-4">Tournament History</h1>
+      <p class="text-gray-400 mt-4 max-w-xl mx-auto">
+        A record of every Condor Gilligan Invitational.
+      </p>
+    </div>
+
+    <div class="space-y-8">
+      {tournaments.map((t) => (
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-8 sm:p-10">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+            <div>
+              <span class="text-gold-500 font-serif text-3xl font-bold">{t.year}</span>
+              <h2 class="text-white font-serif text-xl mt-1">{t.title}</h2>
+            </div>
+            <span class="text-gray-500 text-sm mt-2 sm:mt-0">{t.location}</span>
+          </div>
+          <div class="h-px bg-gold-800/20 mb-6"></div>
+          <div class="grid sm:grid-cols-3 gap-6">
+            <div>
+              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
+              <p class="text-white font-medium">{t.winner}</p>
+            </div>
+            <div>
+              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Runner-up</p>
+              <p class="text-white font-medium">{t.runnerUp}</p>
+            </div>
+            <div>
+              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Notes</p>
+              <p class="text-gray-400 text-sm">{t.notes}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <div class="inline-block bg-green-900/30 border border-gold-800/20 rounded-lg px-8 py-6">
+        <p class="text-gray-400 text-sm">
+          History is written with every swing. More editions to come.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>

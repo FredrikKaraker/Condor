@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const participants = [
+  { name: 'Player 1', handicap: '—' },
+  { name: 'Player 2', handicap: '—' },
+  { name: 'Player 3', handicap: '—' },
+  { name: 'Player 4', handicap: '—' },
+  { name: 'Player 5', handicap: '—' },
+  { name: 'Player 6', handicap: '—' },
+  { name: 'Player 7', handicap: '—' },
+  { name: 'Player 8', handicap: '—' },
+];
+---
+
+<Layout title="Participants">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <span class="text-gold-600 text-sm font-medium tracking-[0.2em] uppercase">The Field</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white mt-4">Participants</h1>
+      <p class="text-gray-400 mt-4 max-w-xl mx-auto">
+        The golfers competing in the Condor Gilligan Invitational.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {participants.map((p) => (
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 text-center hover:border-gold-700/40 transition-colors">
+          <div class="w-16 h-16 rounded-full bg-green-800/50 border border-gold-800/30 mx-auto mb-4 flex items-center justify-center">
+            <span class="text-gold-500 font-serif text-xl">{p.name.charAt(0)}</span>
+          </div>
+          <h3 class="text-white font-medium">{p.name}</h3>
+          <p class="text-gray-500 text-sm mt-1">HCP: {p.handicap}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-12">
+      <p class="text-gray-500 text-sm italic">
+        Participant list will be updated as registrations are confirmed.
+      </p>
+    </div>
+  </section>
+</Layout>

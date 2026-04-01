@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const rules = [
+  {
+    title: 'Format',
+    content: 'Tournament format details will be confirmed ahead of each edition. Expect a mix of individual and team play.',
+  },
+  {
+    title: 'Handicaps',
+    content: 'All players must have a registered handicap. Handicap adjustments may be applied at the discretion of the tournament committee.',
+  },
+  {
+    title: 'Scoring',
+    content: 'Scoring system will be announced prior to each tournament. Both stroke play and match play formats may be used.',
+  },
+  {
+    title: 'Etiquette',
+    content: 'Players are expected to observe proper golf etiquette at all times. Pace of play guidelines will be in effect.',
+  },
+  {
+    title: 'Dress Code',
+    content: 'Smart golf attire is required. Collared shirts, tailored shorts or trousers, and golf shoes.',
+  },
+  {
+    title: 'The Gilligan Rule',
+    content: 'Each player is granted a set number of mulligans per round — the Gilligan Rule. Exact allocation announced per tournament.',
+  },
+];
+---
+
+<Layout title="Rules">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <div class="text-center mb-16">
+      <span class="text-gold-600 text-sm font-medium tracking-[0.2em] uppercase">Play Fair, Play Bold</span>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white mt-4">Tournament Rules</h1>
+      <p class="text-gray-400 mt-4 max-w-xl mx-auto">
+        The framework that keeps the competition honest and the fun alive.
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-6">
+      {rules.map((rule, i) => (
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-gold-500 font-serif text-2xl font-bold leading-none mt-0.5">
+              {String(i + 1).padStart(2, '0')}
+            </span>
+            <div>
+              <h3 class="text-gold-300 font-serif text-lg mb-2">{rule.title}</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">{rule.content}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-16">
+      <p class="text-gray-500 text-sm italic">
+        Rules are subject to revision. The tournament committee has the final say on all matters.
+      </p>
+    </div>
+  </section>
+</Layout>

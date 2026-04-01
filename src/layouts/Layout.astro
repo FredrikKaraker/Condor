@@ -1,0 +1,108 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'The Condor Gilligan Invitational - An annual golf tournament celebrating camaraderie and competition.' } = Astro.props;
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/participants', label: 'Participants' },
+  { href: '/history', label: 'History' },
+  { href: '/rules', label: 'Rules' },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+    <title>{title} | Condor Gilligan Invitational</title>
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <nav class="border-b border-gold-800/30 bg-green-950/80 backdrop-blur-md sticky top-0 z-50">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <a href="/" class="font-serif text-gold-400 text-xl font-bold tracking-wide">
+            CGI
+          </a>
+
+          <!-- Mobile menu button -->
+          <button
+            id="mobile-menu-btn"
+            class="sm:hidden text-gold-300 hover:text-gold-400 transition-colors"
+            aria-label="Toggle menu"
+          >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <!-- Desktop nav -->
+          <div class="hidden sm:flex sm:items-center sm:gap-8">
+            {navLinks.map(link => (
+              <a
+                href={link.href}
+                class:list={[
+                  'text-sm font-medium tracking-wide uppercase transition-colors',
+                  currentPath === link.href
+                    ? 'text-gold-400'
+                    : 'text-gray-400 hover:text-gold-300',
+                ]}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <!-- Mobile nav -->
+        <div id="mobile-menu" class="hidden sm:hidden pb-4">
+          {navLinks.map(link => (
+            <a
+              href={link.href}
+              class:list={[
+                'block py-2 text-sm font-medium tracking-wide uppercase transition-colors',
+                currentPath === link.href
+                  ? 'text-gold-400'
+                  : 'text-gray-400 hover:text-gold-300',
+              ]}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="border-t border-gold-800/30 py-8 mt-16">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p class="font-serif text-gold-500 text-lg">Condor Gilligan Invitational</p>
+        <p class="text-gray-500 text-sm mt-2">&copy; {new Date().getFullYear()} All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('mobile-menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      btn?.addEventListener('click', () => {
+        menu?.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
+
