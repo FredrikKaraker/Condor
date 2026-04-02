@@ -11,20 +11,29 @@ const GEO_TOP = 69.061149;
 const GEO_RIGHT = 24.170696;
 const GEO_BOTTOM = 55.338154;
 
+// Mercator projection: latitude needs non-linear mapping
+function mercatorY(lat: number) {
+  const rad = (lat * Math.PI) / 180;
+  return Math.log(Math.tan(Math.PI / 4 + rad / 2));
+}
+
+const mercTop = mercatorY(GEO_TOP);
+const mercBottom = mercatorY(GEO_BOTTOM);
+
 function latLngToPercent(lat: number, lng: number) {
   const x = ((lng - GEO_LEFT) / (GEO_RIGHT - GEO_LEFT)) * 100;
-  const y = ((GEO_TOP - lat) / (GEO_TOP - GEO_BOTTOM)) * 100;
+  const y = ((mercTop - mercatorY(lat)) / (mercTop - mercBottom)) * 100;
   return { x, y };
 }
 
 // Tournament locations with real coordinates
 const locationCoords: Record<string, { lat: number; lng: number }> = {
-  'Mauritzberg':             { lat: 58.62, lng: 16.68 },
-  'Norrköping / Åtvidaberg': { lat: 58.50, lng: 16.00 },
-  'Gotland':                 { lat: 57.58, lng: 18.29 },
-  'Västervik':               { lat: 57.76, lng: 16.64 },
-  'Eskilstuna':              { lat: 59.37, lng: 16.51 },
-  'Stockholm':               { lat: 59.33, lng: 18.07 },
+  'Mauritzberg':             { lat: 58.606036, lng: 16.677718 },
+  'Norrköping / Åtvidaberg': { lat: 58.375156, lng: 16.041174 },
+  'Gotland':                 { lat: 57.282684, lng: 18.471539 },
+  'Västervik':               { lat: 57.771795, lng: 16.652731 },
+  'Eskilstuna':              { lat: 59.371249, lng: 16.558675 },
+  'Stockholm':               { lat: 59.348766, lng: 18.112438 },
 };
 
 const pins = data.tournaments.map(t => ({
