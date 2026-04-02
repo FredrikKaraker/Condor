@@ -1,0 +1,118 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import data from '../../data/tournaments.json';
+
+export function getStaticPaths() {
+  return data.tournaments.map((t) => ({
+    params: { slug: t.slug },
+    props: { tournament: t },
+  }));
+}
+
+const { tournament: t } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout title={`${t.year} — ${t.title}`}>
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+    <!-- Back link -->
+    <a href={`${base}/history/`} class="inline-flex items-center gap-1 text-gold-600 hover:text-gold-400 text-sm transition-colors mb-10">
+      &larr; Back to History
+    </a>
+
+    <!-- Header -->
+    <div class="mb-12">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-gold-500 font-serif text-4xl sm:text-5xl font-bold">{t.year}</span>
+        {t.type === 'winter' && (
+          <span class="text-xs bg-sky-400/10 text-sky-400 border border-sky-400/20 rounded-full px-3 py-1">Winter Edition</span>
+        )}
+      </div>
+      <h1 class="font-serif text-3xl sm:text-4xl text-white">{t.title}</h1>
+      <p class="text-gray-400 mt-2">{t.dates}</p>
+    </div>
+
+    <!-- Info cards -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-10">
+      <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6">
+        <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Location</p>
+        <p class="text-white">{t.location}</p>
+      </div>
+      <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6">
+        <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Courses</p>
+        <div>
+          {t.courses.map((c) => (
+            <p class="text-white">{c}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Champion highlight -->
+    <div class="bg-gradient-to-br from-green-900/50 to-green-800/30 border border-gold-700/30 rounded-xl p-8 sm:p-10 text-center mb-10">
+      <p class="text-gold-600 text-xs font-medium tracking-[0.2em] uppercase mb-3">Champion</p>
+      <p class="font-serif text-3xl sm:text-4xl text-gold-400 font-bold">{t.results[0].player}</p>
+      {t.results[0].points && (
+        <p class="text-gray-400 mt-2">{t.results[0].points} points</p>
+      )}
+    </div>
+
+    <!-- Full standings -->
+    {t.results.length > 1 && (
+      <div class="mb-10">
+        <h2 class="font-serif text-xl text-gold-300 mb-4">Final Standings</h2>
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-xl overflow-hidden">
+          <div class="grid grid-cols-[auto_1fr_auto] gap-4 px-6 py-3 border-b border-gold-800/20">
+            <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Pos</p>
+            <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Player</p>
+            <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-right">Points</p>
+          </div>
+          {t.results.map((r, i) => (
+            <div class:list={[
+              'grid grid-cols-[auto_1fr_auto] gap-4 px-6 py-4 items-center',
+              i < t.results.length - 1 && 'border-b border-gold-800/10',
+            ]}>
+              <span class:list={[
+                'font-serif font-bold w-8',
+                i === 0 ? 'text-gold-400' : i === 1 ? 'text-gray-300' : i === 2 ? 'text-amber-700' : 'text-gray-500',
+              ]}>
+                {i + 1}
+              </span>
+              <span class:list={[
+                'font-medium',
+                i === 0 ? 'text-gold-400' : 'text-white',
+              ]}>
+                {r.player}
+              </span>
+              <span class="text-gray-400 text-right tabular-nums">
+                {r.points ? `${r.points}p` : '—'}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    )}
+
+    <!-- Notes -->
+    {t.notes && (
+      <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 mb-10">
+        <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Notes</p>
+        <p class="text-gray-400 text-sm">{t.notes}</p>
+      </div>
+    )}
+
+    <!-- Chronicle placeholder -->
+    {t.chronicle ? (
+      <div class="mb-10">
+        <h2 class="font-serif text-xl text-gold-300 mb-4">Chronicle</h2>
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
+          <p class="text-gray-400 text-sm leading-relaxed">{t.chronicle}</p>
+        </div>
+      </div>
+    ) : (
+      <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 text-center mb-10">
+        <p class="text-gray-500 text-sm italic">Chronicle coming soon.</p>
+      </div>
+    )}
+  </section>
+</Layout>

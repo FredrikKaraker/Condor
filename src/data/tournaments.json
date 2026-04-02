@@ -1,0 +1,123 @@
+{
+  "tournaments": [
+    {
+      "slug": "2021-mauritzberg",
+      "year": 2021,
+      "title": "Mauritzberg",
+      "type": "summer",
+      "dates": "September 18–19",
+      "location": "Mauritzberg",
+      "courses": ["Bråvikens GK", "Mauritzberg Slottsbanan"],
+      "results": [
+        { "player": "Carl Beling", "points": 35 },
+        { "player": "Johan Bäckström", "points": 21 },
+        { "player": "Fredrik Karåker", "points": 18 },
+        { "player": "Rasmus Gustafson", "points": 16 }
+      ],
+      "notes": null,
+      "chronicle": null
+    },
+    {
+      "slug": "2022-villa-baro",
+      "year": 2022,
+      "title": "Norrköping / Villa Baro",
+      "type": "summer",
+      "dates": "June 10–12",
+      "location": "Norrköping / Åtvidaberg",
+      "courses": ["Norrköping Söderköping GK Hylinge", "Villa Baro Golf Åtvidaberg"],
+      "results": [
+        { "player": "Anthony Smith", "points": 26 },
+        { "player": "Carl Beling", "points": 23 },
+        { "player": "Rasmus Gustafson", "points": 14 },
+        { "player": "Fredrik Karåker", "points": 12 },
+        { "player": "Johan Bäckström", "points": 10 },
+        { "player": "Erik Larsson", "points": 10 },
+        { "player": "Axel Philipson", "points": 1 }
+      ],
+      "notes": "Sebastian Ahlström walked over due to sickness.",
+      "chronicle": null
+    },
+    {
+      "slug": "2023-gumbalde",
+      "year": 2023,
+      "title": "Gumbalde, Gotland",
+      "type": "summer",
+      "dates": "June 1–3",
+      "location": "Gotland",
+      "courses": ["Gumbalde Resortbanan"],
+      "results": [
+        { "player": "Sebastian Ahlström", "points": null }
+      ],
+      "notes": "No detailed scoring records available.",
+      "chronicle": null
+    },
+    {
+      "slug": "2024-vastervik",
+      "year": 2024,
+      "title": "Västervik",
+      "type": "summer",
+      "dates": "September 7–9",
+      "location": "Västervik",
+      "courses": ["Västerviks Golf Ekhagen"],
+      "results": [
+        { "player": "Rasmus Gustafson", "points": 36 },
+        { "player": "Sebastian Ahlström", "points": 25 },
+        { "player": "Erik Larsson", "points": 19 },
+        { "player": "David Wasserman", "points": 15 },
+        { "player": "Johan Bäckström", "points": 11 },
+        { "player": "Anthony Smith", "points": 10 },
+        { "player": "Fredrik Karåker", "points": 8 },
+        { "player": "Axel Philipson", "points": 7 }
+      ],
+      "notes": null,
+      "chronicle": null
+    },
+    {
+      "slug": "2025-eskilstuna",
+      "year": 2025,
+      "title": "Eskilstuna",
+      "type": "summer",
+      "dates": "August 21–24",
+      "location": "Eskilstuna",
+      "courses": ["Eskilstuna GK", "Strands GK"],
+      "results": [
+        { "player": "Fredrik Karåker", "points": 26 },
+        { "player": "Johan Bäckström", "points": 21 },
+        { "player": "Anthony Smith", "points": 21 },
+        { "player": "Mikael Bäckman", "points": 19 },
+        { "player": "Erik Larsson", "points": 16 },
+        { "player": "Rasmus Gustafson", "points": 11 },
+        { "player": "Oscar Rosander", "points": 6 }
+      ],
+      "notes": null,
+      "chronicle": null
+    },
+    {
+      "slug": "2026-winter-stockholm",
+      "year": 2026,
+      "title": "Winter Edition — Stockholm",
+      "type": "winter",
+      "dates": "February 28",
+      "location": "Stockholm",
+      "courses": ["RUFF Frihamnen"],
+      "results": [
+        { "player": "Erik Larsson", "points": null }
+      ],
+      "notes": "No detailed scoring records available.",
+      "chronicle": null
+    }
+  ],
+  "players": [
+    { "name": "Fredrik Karåker",    "events": [true, true, true, true, true, true] },
+    { "name": "Rasmus Gustafson",   "events": [true, true, true, true, true, true] },
+    { "name": "Johan Bäckström",    "events": [true, true, true, true, true, true] },
+    { "name": "Erik Larsson",       "events": [false, true, true, true, true, true] },
+    { "name": "Anthony Smith",      "events": [false, true, true, true, true, true] },
+    { "name": "Carl Beling",        "events": [true, true, true, false, false, true] },
+    { "name": "Axel Philipson",     "events": [false, true, false, true, false, true] },
+    { "name": "Sebastian Ahlström", "events": [false, false, true, true, false, true] },
+    { "name": "Mikael Bäckman",     "events": [false, false, true, false, true, false] },
+    { "name": "Oscar Rosander",     "events": [false, false, false, false, true, false] },
+    { "name": "David Wasserman",    "events": [false, false, false, true, false, false] }
+  ]
+}

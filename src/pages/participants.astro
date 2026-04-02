@@ -1,31 +1,15 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import data from '../data/tournaments.json';
 
-// Chronological tournament list: type determines dot color
-// 'summer' = gold, 'winter' = sky blue
-const tournaments = [
-  { id: 'S1', type: 'summer' },
-  { id: 'S2', type: 'summer' },
-  { id: 'S3', type: 'summer' },
-  { id: 'S4', type: 'summer' },
-  { id: 'S5', type: 'summer' },
-  { id: 'W1', type: 'winter' },
-];
+const { tournaments, players } = data;
 
-// Each entry in `events` matches the tournaments array above
-const participants = [
-  { name: 'Fredrik Karåker',    events: [true, true, true, true, true, true] },
-  { name: 'Rasmus Gustafson',   events: [true, true, true, true, true, true] },
-  { name: 'Johan Bäckström',    events: [true, true, true, true, true, true] },
-  { name: 'Erik Larsson',       events: [false, true, true, true, true, true] },
-  { name: 'Anthony Smith',      events: [false, true, true, true, true, true] },
-  { name: 'Carl Beling',        events: [true, true, true, false, false, true] },
-  { name: 'Axel Philipson',     events: [false, true, false, true, false, true] },
-  { name: 'Sebastian Ahlström', events: [false, false, true, true, false, true] },
-  { name: 'Mikael Bäckman',     events: [false, false, true, false, true, false] },
-  { name: 'Oscar Rosander',     events: [false, false, false, false, true, false] },
-  { name: 'David Wasserman',    events: [false, false, false, true, false, false] },
-];
+// Count wins per player
+const wins: Record<string, number> = {};
+for (const t of tournaments) {
+  const winner = t.results[0].player;
+  wins[winner] = (wins[winner] || 0) + 1;
+}
 ---
 
 <Layout title="Participants">
@@ -41,11 +25,11 @@ const participants = [
     <!-- Stats -->
     <div class="flex justify-center gap-8 sm:gap-16 mb-16">
       <div class="text-center">
-        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">{participants.length}</p>
+        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">{players.length}</p>
         <p class="text-gray-500 text-sm mt-1">Total Players</p>
       </div>
       <div class="text-center">
-        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">6</p>
+        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">{tournaments.length}</p>
         <p class="text-gray-500 text-sm mt-1">Tournaments</p>
       </div>
     </div>
@@ -57,16 +41,23 @@ const participants = [
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Player</p>
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-center">Tournaments</p>
         </div>
-        {participants.map((p, i) => (
+        {players.map((p, i) => (
           <div class:list={[
             'grid grid-cols-[1fr_auto] gap-4 px-6 py-4 items-center',
-            i < participants.length - 1 && 'border-b border-gold-800/10',
+            i < players.length - 1 && 'border-b border-gold-800/10',
           ]}>
             <div class="flex items-center gap-3">
               <div class="w-9 h-9 rounded-full bg-green-800/50 border border-gold-800/30 flex items-center justify-center shrink-0">
                 <span class="text-gold-500 font-serif text-sm">{p.name.split(' ').map(n => n.charAt(0)).join('')}</span>
               </div>
-              <span class="text-white font-medium">{p.name}</span>
+              <div>
+                <span class="text-white font-medium">{p.name}</span>
+                {wins[p.name] && (
+                  <span class="text-gold-500 text-xs ml-2">
+                    {'🏆'.repeat(wins[p.name])}
+                  </span>
+                )}
+              </div>
             </div>
             <div class="flex items-center justify-center gap-1">
               {tournaments.map((t, j) => (

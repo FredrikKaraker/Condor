@@ -1,16 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import data from '../data/tournaments.json';
+const base = import.meta.env.BASE_URL;
 
-const tournaments = [
-  {
-    year: 2024,
-    title: 'Inaugural Edition',
-    location: 'TBD Golf Club',
-    winner: 'TBD',
-    runnerUp: 'TBD',
-    notes: 'The very first Condor Gilligan Invitational.',
-  },
-];
+const tournaments = [...data.tournaments].reverse();
 ---
 
 <Layout title="History">
@@ -23,32 +16,50 @@ const tournaments = [
       </p>
     </div>
 
-    <div class="space-y-8">
+    <div class="space-y-6">
       {tournaments.map((t) => (
-        <div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-8 sm:p-10">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-            <div>
-              <span class="text-gold-500 font-serif text-3xl font-bold">{t.year}</span>
-              <h2 class="text-white font-serif text-xl mt-1">{t.title}</h2>
+        <a href={`${base}/history/${t.slug}/`} class="block group">
+          <div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-8 sm:p-10 transition-colors group-hover:border-gold-700/40">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
+              <div class="flex items-center gap-4">
+                <span class="text-gold-500 font-serif text-3xl font-bold">{t.year}</span>
+                <div>
+                  <h2 class="text-white font-serif text-xl">{t.title}</h2>
+                  <p class="text-gray-500 text-sm">{t.dates}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2 mt-3 sm:mt-0">
+                {t.type === 'winter' && (
+                  <span class="text-xs bg-sky-400/10 text-sky-400 border border-sky-400/20 rounded-full px-3 py-1">Winter</span>
+                )}
+                <span class="text-gold-600 text-sm group-hover:text-gold-400 transition-colors">View details &rarr;</span>
+              </div>
             </div>
-            <span class="text-gray-500 text-sm mt-2 sm:mt-0">{t.location}</span>
+            <div class="h-px bg-gold-800/20 mb-6"></div>
+            <div class="grid sm:grid-cols-3 gap-6">
+              <div>
+                <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
+                <p class="text-white font-medium">{t.results[0].player}</p>
+                {t.results[0].points && (
+                  <p class="text-gray-500 text-sm">{t.results[0].points} pts</p>
+                )}
+              </div>
+              {t.results.length > 1 && (
+                <div>
+                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Runner-up</p>
+                  <p class="text-white font-medium">{t.results[1].player}</p>
+                  {t.results[1].points && (
+                    <p class="text-gray-500 text-sm">{t.results[1].points} pts</p>
+                  )}
+                </div>
+              )}
+              <div>
+                <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Courses</p>
+                <p class="text-gray-400 text-sm">{t.courses.join(', ')}</p>
+              </div>
+            </div>
           </div>
-          <div class="h-px bg-gold-800/20 mb-6"></div>
-          <div class="grid sm:grid-cols-3 gap-6">
-            <div>
-              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
-              <p class="text-white font-medium">{t.winner}</p>
-            </div>
-            <div>
-              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Runner-up</p>
-              <p class="text-white font-medium">{t.runnerUp}</p>
-            </div>
-            <div>
-              <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Notes</p>
-              <p class="text-gray-400 text-sm">{t.notes}</p>
-            </div>
-          </div>
-        </div>
+        </a>
       ))}
     </div>
 
