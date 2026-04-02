@@ -53,7 +53,7 @@ const pins = data.tournaments.map(t => ({
       {pins.map((t) => (
         <a
           href={`${base}/history/${t.slug}/`}
-          class="absolute group"
+          class="absolute group hover:z-50"
           style={`left: ${t.pos.x}%; top: ${t.pos.y}%; transform: translate(-50%, -50%);`}
         >
           <span class:list={[
