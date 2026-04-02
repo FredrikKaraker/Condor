@@ -17,56 +17,61 @@ const tournaments = [...data.tournaments].reverse();
       </p>
     </div>
 
-    <!-- Map -->
-    <div class="max-w-sm mx-auto mb-16">
-      <SwedenMap />
-    </div>
+    <div class="flex flex-col lg:flex-row gap-8 lg:gap-10">
+      <!-- Map (sticky on large screens) -->
+      <div class="lg:w-72 xl:w-80 shrink-0">
+        <div class="lg:sticky lg:top-24">
+          <SwedenMap />
+        </div>
+      </div>
 
-    <div class="space-y-6">
-      {tournaments.map((t) => (
-        <a href={`${base}/history/${t.slug}/`} class="block group">
-          <div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-8 sm:p-10 transition-colors group-hover:border-gold-700/40">
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-6">
-              <div class="flex items-center gap-4">
-                <span class="text-gold-500 font-serif text-3xl font-bold">{t.year}</span>
-                <div>
-                  <h2 class="text-white font-serif text-xl">{t.title}</h2>
-                  <p class="text-gray-500 text-sm">{t.dates}</p>
+      <!-- Tournament list -->
+      <div class="flex-1 space-y-6">
+        {tournaments.map((t) => (
+          <a href={`${base}/history/${t.slug}/`} class="block group">
+            <div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-6 sm:p-8 transition-colors group-hover:border-gold-700/40">
+              <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
+                <div class="flex items-center gap-4">
+                  <span class="text-gold-500 font-serif text-2xl sm:text-3xl font-bold">{t.year}</span>
+                  <div>
+                    <h2 class="text-white font-serif text-lg sm:text-xl">{t.title}</h2>
+                    <p class="text-gray-500 text-sm">{t.dates}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-2 mt-3 sm:mt-0">
+                  {t.type === 'winter' && (
+                    <span class="text-xs bg-sky-400/10 text-sky-400 border border-sky-400/20 rounded-full px-3 py-1">Winter</span>
+                  )}
+                  <span class="text-gold-600 text-sm group-hover:text-gold-400 transition-colors">View details &rarr;</span>
                 </div>
               </div>
-              <div class="flex items-center gap-2 mt-3 sm:mt-0">
-                {t.type === 'winter' && (
-                  <span class="text-xs bg-sky-400/10 text-sky-400 border border-sky-400/20 rounded-full px-3 py-1">Winter</span>
-                )}
-                <span class="text-gold-600 text-sm group-hover:text-gold-400 transition-colors">View details &rarr;</span>
-              </div>
-            </div>
-            <div class="h-px bg-gold-800/20 mb-6"></div>
-            <div class="grid sm:grid-cols-3 gap-6">
-              <div>
-                <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
-                <p class="text-white font-medium">{t.results[0].player}</p>
-                {t.results[0].points && (
-                  <p class="text-gray-500 text-sm">{t.results[0].points} pts</p>
-                )}
-              </div>
-              {t.results.length > 1 && (
+              <div class="h-px bg-gold-800/20 mb-4"></div>
+              <div class="grid sm:grid-cols-3 gap-4">
                 <div>
-                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Runner-up</p>
-                  <p class="text-white font-medium">{t.results[1].player}</p>
-                  {t.results[1].points && (
-                    <p class="text-gray-500 text-sm">{t.results[1].points} pts</p>
+                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
+                  <p class="text-white font-medium">{t.results[0].player}</p>
+                  {t.results[0].points && (
+                    <p class="text-gray-500 text-sm">{t.results[0].points} pts</p>
                   )}
                 </div>
-              )}
-              <div>
-                <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Courses</p>
-                <p class="text-gray-400 text-sm">{t.courses.join(', ')}</p>
+                {t.results.length > 1 && (
+                  <div>
+                    <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Runner-up</p>
+                    <p class="text-white font-medium">{t.results[1].player}</p>
+                    {t.results[1].points && (
+                      <p class="text-gray-500 text-sm">{t.results[1].points} pts</p>
+                    )}
+                  </div>
+                )}
+                <div>
+                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Courses</p>
+                  <p class="text-gray-400 text-sm">{t.courses.join(', ')}</p>
+                </div>
               </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        ))}
+      </div>
     </div>
 
     <div class="text-center mt-16">
