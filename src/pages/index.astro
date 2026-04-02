@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout title="Home">
@@ -19,13 +20,13 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/participants"
+          href={`${base}participants/`}
           class="inline-block bg-gold-500 hover:bg-gold-400 text-green-950 font-semibold px-8 py-3 rounded transition-colors text-sm tracking-wide uppercase"
         >
           View Participants
         </a>
         <a
-          href="/rules"
+          href={`${base}rules/`}
           class="inline-block border border-gold-600/50 hover:border-gold-500 text-gold-400 font-semibold px-8 py-3 rounded transition-colors text-sm tracking-wide uppercase"
         >
           Tournament Rules
