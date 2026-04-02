@@ -1,0 +1,70 @@
+{
+  "intro": "The Condor Gilligan Invitational is an invitational golf tournament held annually at a location somewhere in the world, governed by the rules and guidelines outlined below.",
+  "sections": [
+    {
+      "title": "Format & Rules",
+      "rules": [
+        "The tournament is always played over **2–4 rounds**. The player with the most points after all rounds wins (see *Scoring* for the point system).",
+        "The tournament must be played in **3- or 4-balls**. Exceptions are only made if a registered player is suddenly unable to attend.",
+        "All participants must have a handicap within the range **5.0–36.0**.",
+        "A **condor** results in an immediate tournament victory.",
+        "Each player has **one Gilligan** to give out per round. It can be given on any shot (except the exceptions listed below), but must be given as soon as possible after the ball has come to rest. You may not give a Gilligan to yourself (Lex Anthony). A player who does not use their Gilligan during a round receives **–1 point**.",
+        "**Gilligans are prohibited in the following situations:**\n- On the first and last hole\n- On the first shot during closest-to-pin and longest-drive contests\n- On hole-in-ones and condors",
+        "Each round includes a **closest-to-pin** and a **longest-drive** contest. These should be held on a short par 3 and a par 5 with a wide fairway, respectively.",
+        "At each tournament there is a **Winners Hat** that must be worn by the player leading the overall standings before each round. In the first round, this is the previous year's champion. After the tournament, the winner becomes the proud owner of the hat.",
+        "The winner also receives the **Champions Pin** — a brooch that is a perpetual trophy, pinned to the winner's bag until the next year's tournament.",
+        "The winning player is then tasked with designing a new Winners Hat for the following year's tournament, subject to these requirements:\n- A piece of headwear that can easily be worn during a round without significantly affecting the wearer's play (e.g. cap, bucket hat, beanie, flat cap, visor, etc.)\n- The design must include:\n  - The text \"Condor Gilligan Invitational\"\n  - Some type of bird reference\n  - The year of the tournament"
+      ]
+    },
+    {
+      "title": "Scoring",
+      "intro": "The following points are awarded during the tournament:",
+      "subsections": [
+        {
+          "title": "Round Placement (Modified Stableford among all players)",
+          "items": [
+            "1st: **15 pts**",
+            "2nd: **12 pts**",
+            "3rd: **10 pts**",
+            "4th: **5 pts**",
+            "5th: **3 pts**",
+            "6th: **2 pts**",
+            "7th: **1 pt**",
+            "Remaining players receive 0 points."
+          ]
+        },
+        {
+          "title": "Longest Drive & Closest to Pin",
+          "items": [
+            "1st: **3 pts**",
+            "2nd: **2 pts**",
+            "3rd: **1 pt**",
+            "Players who miss the green (closest) or fairway (longest) are disqualified and receive 0 points. When playing in multiple groups, these points are awarded **per group**, unlike round placement points."
+          ]
+        },
+        {
+          "title": "Hole Results",
+          "items": [
+            "Birdie: **3 pts** (hcp > 18.0) / **2 pts** (hcp 10.0–18.0) / **1 pt** (hcp < 10.0)",
+            "Eagle: **5 pts** (hcp > 18.0) / **4 pts** (hcp 10.0–18.0) / **3 pts** (hcp < 10.0)",
+            "Albatross: **10 pts**",
+            "Hole-in-one: **15 pts**",
+            "Condor: **Immediate tournament victory**",
+            "Players with **handicap over 30** also receive **1 pt** for par.",
+            "**–1 pt** for an unused Gilligan."
+          ]
+        }
+      ],
+      "outro": "Once all rounds are complete, all points and any deductions (see *Conduct & Etiquette*) are tallied. The player with the most points wins that year's edition of the Condor Gilligan Invitational."
+    },
+    {
+      "title": "Conduct & Etiquette",
+      "rules": [
+        "**Ready golf** should be practiced to the greatest extent possible.",
+        "A ball is always marked behind the ball in the direction of the flag. If the marker needs to be moved, any reference point may be used. (Lex Gustafsson)",
+        "The following behavior is considered unsportsmanlike conduct:\n- Throwing clubs\n- Striking the ground, bags, or other objects\n- Other unnecessary physical or verbal outbursts of a negative nature\n- Excessively slow play",
+        "Such behavior may result in a **point deduction** (1 pt per incident) if the other players in the group (by majority) deem it appropriate. However, **a warning** must first be issued."
+      ]
+    }
+  ]
+}

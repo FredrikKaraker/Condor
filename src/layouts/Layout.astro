@@ -11,10 +11,10 @@ const currentPath = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: `${base}`, label: 'Home' },
-  { href: `${base}participants/`, label: 'Participants' },
-  { href: `${base}history/`, label: 'History' },
-  { href: `${base}rules/`, label: 'Rules' },
+  { href: `${base}/`, label: 'Home' },
+  { href: `${base}/participants/`, label: 'Participants' },
+  { href: `${base}/history/`, label: 'History' },
+  { href: `${base}/rules/`, label: 'Rules' },
 ];
 ---
 
@@ -34,8 +34,9 @@ const navLinks = [
     <nav class="border-b border-gold-800/30 bg-green-950/80 backdrop-blur-md sticky top-0 z-50">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <a href={base} class="font-serif text-gold-400 text-xl font-bold tracking-wide">
-            CGI
+          <a href={`${base}/`} class="flex items-center gap-2">
+            <img src={`${base}/logo.png`} alt="CGI" class="w-9 h-9" />
+            <span class="font-serif text-gold-400 text-xl font-bold tracking-wide">CGI</span>
           </a>
 
           <!-- Mobile menu button -->

@@ -1,15 +1,30 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+// Chronological tournament list: type determines dot color
+// 'summer' = gold, 'winter' = sky blue
+const tournaments = [
+  { id: 'S1', type: 'summer' },
+  { id: 'S2', type: 'summer' },
+  { id: 'S3', type: 'summer' },
+  { id: 'S4', type: 'summer' },
+  { id: 'S5', type: 'summer' },
+  { id: 'W1', type: 'winter' },
+];
+
+// Each entry in `events` matches the tournaments array above
 const participants = [
-  { name: 'Player 1', handicap: '—' },
-  { name: 'Player 2', handicap: '—' },
-  { name: 'Player 3', handicap: '—' },
-  { name: 'Player 4', handicap: '—' },
-  { name: 'Player 5', handicap: '—' },
-  { name: 'Player 6', handicap: '—' },
-  { name: 'Player 7', handicap: '—' },
-  { name: 'Player 8', handicap: '—' },
+  { name: 'Fredrik Karåker',    events: [true, true, true, true, true, true] },
+  { name: 'Rasmus Gustafson',   events: [true, true, true, true, true, true] },
+  { name: 'Johan Bäckström',    events: [true, true, true, true, true, true] },
+  { name: 'Erik Larsson',       events: [false, true, true, true, true, true] },
+  { name: 'Anthony Smith',      events: [false, true, true, true, true, true] },
+  { name: 'Carl Beling',        events: [true, true, true, false, false, true] },
+  { name: 'Axel Philipson',     events: [false, true, false, true, false, true] },
+  { name: 'Sebastian Ahlström', events: [false, false, true, true, false, true] },
+  { name: 'Mikael Bäckman',     events: [false, false, true, false, true, false] },
+  { name: 'Oscar Rosander',     events: [false, false, false, false, true, false] },
+  { name: 'David Wasserman',    events: [false, false, false, true, false, false] },
 ];
 ---
 
@@ -19,26 +34,65 @@ const participants = [
       <span class="text-gold-600 text-sm font-medium tracking-[0.2em] uppercase">The Field</span>
       <h1 class="font-serif text-4xl sm:text-5xl text-white mt-4">Participants</h1>
       <p class="text-gray-400 mt-4 max-w-xl mx-auto">
-        The golfers competing in the Condor Gilligan Invitational.
+        Every golfer who has competed in the Condor Gilligan Invitational.
       </p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {participants.map((p) => (
-        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 text-center hover:border-gold-700/40 transition-colors">
-          <div class="w-16 h-16 rounded-full bg-green-800/50 border border-gold-800/30 mx-auto mb-4 flex items-center justify-center">
-            <span class="text-gold-500 font-serif text-xl">{p.name.charAt(0)}</span>
-          </div>
-          <h3 class="text-white font-medium">{p.name}</h3>
-          <p class="text-gray-500 text-sm mt-1">HCP: {p.handicap}</p>
+    <!-- Stats -->
+    <div class="flex justify-center gap-8 sm:gap-16 mb-16">
+      <div class="text-center">
+        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">{participants.length}</p>
+        <p class="text-gray-500 text-sm mt-1">Total Players</p>
+      </div>
+      <div class="text-center">
+        <p class="text-gold-400 font-serif text-3xl sm:text-4xl font-bold">6</p>
+        <p class="text-gray-500 text-sm mt-1">Tournaments</p>
+      </div>
+    </div>
+
+    <!-- Participant table -->
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-green-900/30 border border-gold-800/20 rounded-xl overflow-hidden">
+        <div class="grid grid-cols-[1fr_auto] gap-4 px-6 py-3 border-b border-gold-800/20">
+          <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Player</p>
+          <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-center">Tournaments</p>
         </div>
-      ))}
-    </div>
+        {participants.map((p, i) => (
+          <div class:list={[
+            'grid grid-cols-[1fr_auto] gap-4 px-6 py-4 items-center',
+            i < participants.length - 1 && 'border-b border-gold-800/10',
+          ]}>
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-full bg-green-800/50 border border-gold-800/30 flex items-center justify-center shrink-0">
+                <span class="text-gold-500 font-serif text-sm">{p.name.split(' ').map(n => n.charAt(0)).join('')}</span>
+              </div>
+              <span class="text-white font-medium">{p.name}</span>
+            </div>
+            <div class="flex items-center justify-center gap-1">
+              {tournaments.map((t, j) => (
+                <div class:list={[
+                  'w-2.5 h-2.5 rounded-full',
+                  p.events[j]
+                    ? t.type === 'winter' ? 'bg-sky-400' : 'bg-gold-500'
+                    : 'bg-green-800/50',
+                ]} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
 
-    <div class="text-center mt-12">
-      <p class="text-gray-500 text-sm italic">
-        Participant list will be updated as registrations are confirmed.
-      </p>
+      <!-- Legend -->
+      <div class="flex justify-center gap-6 mt-6">
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-gold-500"></div>
+          <span class="text-gray-500 text-xs">Summer Edition</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2.5 h-2.5 rounded-full bg-sky-400"></div>
+          <span class="text-gray-500 text-xs">Winter Edition</span>
+        </div>
+      </div>
     </div>
   </section>
 </Layout>

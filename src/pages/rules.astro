@@ -1,32 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import rulesData from '../data/rules.json';
 
-const rules = [
-  {
-    title: 'Format',
-    content: 'Tournament format details will be confirmed ahead of each edition. Expect a mix of individual and team play.',
-  },
-  {
-    title: 'Handicaps',
-    content: 'All players must have a registered handicap. Handicap adjustments may be applied at the discretion of the tournament committee.',
-  },
-  {
-    title: 'Scoring',
-    content: 'Scoring system will be announced prior to each tournament. Both stroke play and match play formats may be used.',
-  },
-  {
-    title: 'Etiquette',
-    content: 'Players are expected to observe proper golf etiquette at all times. Pace of play guidelines will be in effect.',
-  },
-  {
-    title: 'Dress Code',
-    content: 'Smart golf attire is required. Collared shirts, tailored shorts or trousers, and golf shoes.',
-  },
-  {
-    title: 'The Gilligan Rule',
-    content: 'Each player is granted a set number of mulligans per round — the Gilligan Rule. Exact allocation announced per tournament.',
-  },
-];
+function renderMarkdown(text: string): string {
+  return text
+    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-white">$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/\n- /g, '<br/>&bull; ')
+    .replace(/\n  - /g, '<br/>&nbsp;&nbsp;&bull; ');
+}
 ---
 
 <Layout title="Rules">
@@ -35,22 +17,52 @@ const rules = [
       <span class="text-gold-600 text-sm font-medium tracking-[0.2em] uppercase">Play Fair, Play Bold</span>
       <h1 class="font-serif text-4xl sm:text-5xl text-white mt-4">Tournament Rules</h1>
       <p class="text-gray-400 mt-4 max-w-xl mx-auto">
-        The framework that keeps the competition honest and the fun alive.
+        {rulesData.intro}
       </p>
     </div>
 
-    <div class="max-w-3xl mx-auto space-y-6">
-      {rules.map((rule, i) => (
-        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
-          <div class="flex items-start gap-4">
-            <span class="text-gold-500 font-serif text-2xl font-bold leading-none mt-0.5">
-              {String(i + 1).padStart(2, '0')}
-            </span>
-            <div>
-              <h3 class="text-gold-300 font-serif text-lg mb-2">{rule.title}</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">{rule.content}</p>
+    <div class="max-w-3xl mx-auto space-y-12">
+      {rulesData.sections.map((section) => (
+        <div>
+          <h2 class="font-serif text-2xl sm:text-3xl text-gold-400 mb-6">{section.title}</h2>
+
+          {section.intro && (
+            <p class="text-gray-400 text-sm mb-6">{section.intro}</p>
+          )}
+
+          {section.rules && (
+            <div class="space-y-4">
+              {section.rules.map((rule, i) => (
+                <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
+                  <div class="flex items-start gap-4">
+                    <span class="text-gold-500 font-serif text-2xl font-bold leading-none mt-0.5 shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <p class="text-gray-400 text-sm leading-relaxed" set:html={renderMarkdown(rule)} />
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          )}
+
+          {section.subsections && (
+            <div class="space-y-8">
+              {section.subsections.map((sub) => (
+                <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
+                  <h3 class="text-gold-300 font-serif text-lg mb-4">{sub.title}</h3>
+                  <ul class="space-y-2">
+                    {sub.items.map((item) => (
+                      <li class="text-gray-400 text-sm leading-relaxed" set:html={renderMarkdown(item)} />
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {section.outro && (
+            <p class="text-gray-400 text-sm mt-6 leading-relaxed" set:html={renderMarkdown(section.outro)} />
+          )}
         </div>
       ))}
     </div>
