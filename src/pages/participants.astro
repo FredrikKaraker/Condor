@@ -10,6 +10,14 @@ for (const t of tournaments) {
   const winner = t.results[0].player;
   wins[winner] = (wins[winner] || 0) + 1;
 }
+
+// Get placement for a player in each tournament (null = didn't participate)
+function getPlacements(playerName: string): (number | null)[] {
+  return tournaments.map((t) => {
+    const idx = t.results.findIndex(r => r.player === playerName);
+    return idx === -1 ? null : idx + 1;
+  });
+}
 ---
 
 <Layout title="Participants">
@@ -35,46 +43,66 @@ for (const t of tournaments) {
     </div>
 
     <!-- Participant table -->
-    <div class="max-w-2xl mx-auto">
+    <div class="max-w-3xl mx-auto">
       <div class="bg-green-900/30 border border-gold-800/20 rounded-xl overflow-hidden">
-        <div class="grid grid-cols-[1fr_auto] gap-4 px-6 py-3 border-b border-gold-800/20">
+        <div class="grid grid-cols-[1fr_7rem_7.5rem] gap-4 px-6 py-3 border-b border-gold-800/20">
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Player</p>
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-center">Tournaments</p>
+          <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-center">Placements</p>
         </div>
-        {players.map((p, i) => (
-          <div class:list={[
-            'grid grid-cols-[1fr_auto] gap-4 px-6 py-4 items-center',
-            i < players.length - 1 && 'border-b border-gold-800/10',
-          ]}>
-            <div class="flex items-center gap-3">
-              <div class="w-9 h-9 rounded-full bg-green-800/50 border border-gold-800/30 flex items-center justify-center shrink-0">
-                <span class="text-gold-500 font-serif text-sm">{p.name.split(' ').map(n => n.charAt(0)).join('')}</span>
+        {players.map((p, i) => {
+          const placements = getPlacements(p.name);
+          return (
+            <div class:list={[
+              'grid grid-cols-[1fr_7rem_7.5rem] gap-4 px-6 py-4 items-center',
+              i < players.length - 1 && 'border-b border-gold-800/10',
+            ]}>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-green-800/50 border border-gold-800/30 flex items-center justify-center shrink-0">
+                  <span class="text-gold-500 font-serif text-sm">{p.name.split(' ').map(n => n.charAt(0)).join('')}</span>
+                </div>
+                <div>
+                  <span class="text-white font-medium">{p.name}</span>
+                  {wins[p.name] && (
+                    <span class="text-gold-500 text-xs ml-2">
+                      {'🏆'.repeat(wins[p.name])}
+                    </span>
+                  )}
+                </div>
               </div>
-              <div>
-                <span class="text-white font-medium">{p.name}</span>
-                {wins[p.name] && (
-                  <span class="text-gold-500 text-xs ml-2">
-                    {'🏆'.repeat(wins[p.name])}
+              <div class="flex items-center justify-center gap-1">
+                {tournaments.map((t, j) => (
+                  <div class:list={[
+                    'w-2.5 h-2.5 rounded-full',
+                    p.events[j]
+                      ? t.type === 'winter' ? 'bg-sky-400' : 'bg-gold-500'
+                      : 'bg-green-800/50',
+                  ]} />
+                ))}
+              </div>
+              <div class="flex items-center justify-center gap-0.5 font-mono text-xs tabular-nums">
+                {placements.map((place, j) => (
+                  <span class:list={[
+                    'w-5 h-5 flex items-center justify-center rounded',
+                    place === null
+                      ? 'text-green-800/80'
+                      : place === 1
+                        ? 'text-gold-400 font-bold'
+                        : place <= 3
+                          ? 'text-gold-600'
+                          : 'text-gray-500',
+                  ]}>
+                    {place !== null ? place : '–'}
                   </span>
-                )}
+                ))}
               </div>
             </div>
-            <div class="flex items-center justify-center gap-1">
-              {tournaments.map((t, j) => (
-                <div class:list={[
-                  'w-2.5 h-2.5 rounded-full',
-                  p.events[j]
-                    ? t.type === 'winter' ? 'bg-sky-400' : 'bg-gold-500'
-                    : 'bg-green-800/50',
-                ]} />
-              ))}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <!-- Legend -->
-      <div class="flex justify-center gap-6 mt-6">
+      <div class="flex flex-wrap justify-center gap-6 mt-6">
         <div class="flex items-center gap-2">
           <div class="w-2.5 h-2.5 rounded-full bg-gold-500"></div>
           <span class="text-gray-500 text-xs">Summer Edition</span>
