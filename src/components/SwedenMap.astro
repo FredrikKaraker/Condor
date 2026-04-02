@@ -1,0 +1,64 @@
+---
+import data from '../data/tournaments.json';
+const base = import.meta.env.BASE_URL;
+
+// geoViewBox: "11.105169 69.061149 24.170696 55.338154"
+// This means: left_lng=11.105169, top_lat=69.061149, right_lng=24.170696, bottom_lat=55.338154
+const SVG_WIDTH = 345.62482;
+const SVG_HEIGHT = 792.52374;
+const GEO_LEFT = 11.105169;
+const GEO_TOP = 69.061149;
+const GEO_RIGHT = 24.170696;
+const GEO_BOTTOM = 55.338154;
+
+function latLngToPercent(lat: number, lng: number) {
+  const x = ((lng - GEO_LEFT) / (GEO_RIGHT - GEO_LEFT)) * 100;
+  const y = ((GEO_TOP - lat) / (GEO_TOP - GEO_BOTTOM)) * 100;
+  return { x, y };
+}
+
+// Tournament locations with real coordinates
+const locationCoords: Record<string, { lat: number; lng: number }> = {
+  'Mauritzberg':             { lat: 58.62, lng: 16.68 },
+  'Norrköping / Åtvidaberg': { lat: 58.50, lng: 16.00 },
+  'Gotland':                 { lat: 57.58, lng: 18.29 },
+  'Västervik':               { lat: 57.76, lng: 16.64 },
+  'Eskilstuna':              { lat: 59.37, lng: 16.51 },
+  'Stockholm':               { lat: 59.33, lng: 18.07 },
+};
+
+const pins = data.tournaments.map(t => ({
+  ...t,
+  pos: latLngToPercent(
+    locationCoords[t.location]?.lat ?? 59.33,
+    locationCoords[t.location]?.lng ?? 18.07
+  ),
+}));
+---
+
+<div class="bg-green-900/30 border border-gold-800/20 rounded-xl p-6 sm:p-8">
+  <h3 class="font-serif text-xl text-gold-300 mb-4 text-center">Tournament Locations</h3>
+  <div class="flex justify-center">
+    <div class="relative w-full max-w-xs">
+      <img src={`${base}/sweden-map.svg`} alt="Map of Sweden" class="w-full h-auto" />
+      {pins.map((t) => (
+        <a
+          href={`${base}/history/${t.slug}/`}
+          class="absolute group"
+          style={`left: ${t.pos.x}%; top: ${t.pos.y}%; transform: translate(-50%, -50%);`}
+        >
+          <span class:list={[
+            'block w-3 h-3 rounded-full border border-green-950',
+            t.type === 'winter' ? 'bg-sky-400' : 'bg-gold-500',
+          ]} />
+          <span class:list={[
+            'absolute left-5 top-1/2 -translate-y-1/2 whitespace-nowrap text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none px-2 py-1 rounded bg-green-950/90',
+            t.type === 'winter' ? 'text-sky-400' : 'text-gold-400',
+          ]}>
+            {t.year} — {t.location}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
