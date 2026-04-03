@@ -108,16 +108,16 @@
     }
   ],
   "players": [
-    { "name": "Fredrik Karåker",    "events": [true, true, true, true, true, true] },
-    { "name": "Rasmus Gustafson",   "events": [true, true, true, true, true, true] },
-    { "name": "Johan Bäckström",    "events": [true, true, true, true, true, true] },
-    { "name": "Erik Larsson",       "events": [false, true, true, true, true, true] },
-    { "name": "Anthony Smith",      "events": [false, true, true, true, true, true] },
-    { "name": "Carl Beling",        "events": [true, true, true, false, false, true] },
-    { "name": "Axel Philipson",     "events": [false, true, false, true, false, true] },
-    { "name": "Sebastian Ahlström", "events": [false, false, true, true, false, true] },
-    { "name": "Mikael Bäckman",     "events": [false, false, true, false, true, false] },
-    { "name": "Oscar Rosander",     "events": [false, false, false, false, true, false] },
-    { "name": "David Wasserman",    "events": [false, false, false, true, false, false] }
+    { "name": "Fredrik Karåker",    "hcp": "27.3",   "events": [true, true, true, true, true, true] },
+    { "name": "Rasmus Gustafson",   "hcp": "23.7", "events": [true, true, true, true, true, true] },
+    { "name": "Johan Bäckström",    "hcp": "28.7", "events": [true, true, true, true, true, true] },
+    { "name": "Erik Larsson",       "hcp": "15.2", "events": [false, true, true, true, true, true] },
+    { "name": "Anthony Smith",      "hcp": "11.2", "events": [false, true, true, true, true, true] },
+    { "name": "Carl Beling",        "hcp": "32.0", "events": [true, true, true, false, false, true] },
+    { "name": "Axel Philipson",     "hcp": "26.8", "events": [false, true, false, true, false, true] },
+    { "name": "Sebastian Ahlström", "hcp": null,   "events": [false, false, true, true, false, true] },
+    { "name": "Mikael Bäckman",     "hcp": "18.6", "events": [false, false, true, false, true, false] },
+    { "name": "Oscar Rosander",     "hcp": null,   "events": [false, false, false, false, true, false] },
+    { "name": "David Wasserman",    "hcp": null,   "events": [false, false, false, true, false, false] }
   ]
 }

@@ -79,12 +79,15 @@ function getPlacements(playerName: string): (number | null)[] {
                   class="w-12 h-12 rounded-full object-cover border border-gold-800/30 shrink-0"
                 />
                 <div>
-                  <span class="text-white font-medium">{p.name}</span>
-                  {wins[p.name] && (
-                    <span class="text-gold-500 text-xs ml-2">
-                      {'🏆'.repeat(wins[p.name])}
-                    </span>
-                  )}
+                  <div>
+                    <span class="text-white font-medium">{p.name}</span>
+                    {wins[p.name] && (
+                      <span class="text-gold-500 text-xs ml-2">
+                        {'🏆'.repeat(wins[p.name])}
+                      </span>
+                    )}
+                  </div>
+                  <p class="text-gray-500 text-xs mt-0.5">HCP {p.hcp ?? '–'}</p>
                 </div>
               </div>
               <div class="flex items-center justify-center gap-1.5">
