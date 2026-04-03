@@ -2,7 +2,23 @@
 import Layout from '../layouts/Layout.astro';
 import data from '../data/tournaments.json';
 
+const base = import.meta.env.BASE_URL;
 const { tournaments, players } = data;
+
+// Map player names to avatar filenames
+const avatars: Record<string, string> = {
+  'Fredrik Karåker': 'fredrik',
+  'Rasmus Gustafson': 'rasmus',
+  'Johan Bäckström': 'johan',
+  'Erik Larsson': 'erik',
+  'Anthony Smith': 'anthony',
+  'Carl Beling': 'carl',
+  'Axel Philipson': 'axel',
+  'Sebastian Ahlström': 'sebastian',
+  'Mikael Bäckman': 'micke',
+  'Oscar Rosander': 'oscar',
+  'David Wasserman': 'david',
+};
 
 // Count wins per player
 const wins: Record<string, number> = {};
@@ -58,9 +74,11 @@ function getPlacements(playerName: string): (number | null)[] {
               i < players.length - 1 && 'border-b border-gold-800/10',
             ]}>
               <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded-full bg-green-800/50 border border-gold-800/30 flex items-center justify-center shrink-0">
-                  <span class="text-gold-500 font-serif text-sm">{p.name.split(' ').map(n => n.charAt(0)).join('')}</span>
-                </div>
+                <img
+                  src={`${base}/avatars/${avatars[p.name]}.png`}
+                  alt={p.name}
+                  class="w-12 h-12 rounded-full object-cover border border-gold-800/30 shrink-0"
+                />
                 <div>
                   <span class="text-white font-medium">{p.name}</span>
                   {wins[p.name] && (

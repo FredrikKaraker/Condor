@@ -5,6 +5,20 @@ import data from '../data/tournaments.json';
 const base = import.meta.env.BASE_URL;
 
 const tournaments = [...data.tournaments].reverse();
+
+const avatars: Record<string, string> = {
+  'Fredrik Karåker': 'fredrik',
+  'Rasmus Gustafson': 'rasmus',
+  'Johan Bäckström': 'johan',
+  'Erik Larsson': 'erik',
+  'Anthony Smith': 'anthony',
+  'Carl Beling': 'carl',
+  'Axel Philipson': 'axel',
+  'Sebastian Ahlström': 'sebastian',
+  'Mikael Bäckman': 'micke',
+  'Oscar Rosander': 'oscar',
+  'David Wasserman': 'david',
+};
 ---
 
 <Layout title="History">
@@ -48,11 +62,20 @@ const tournaments = [...data.tournaments].reverse();
               <div class="h-px bg-gold-800/20 mb-4"></div>
               <div class="grid sm:grid-cols-3 gap-4">
                 <div>
-                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-1">Champion</p>
-                  <p class="text-white font-medium">{t.results[0].player}</p>
-                  {t.results[0].points && (
-                    <p class="text-gray-500 text-sm">{t.results[0].points} pts</p>
-                  )}
+                  <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Champion</p>
+                  <div class="flex items-center gap-3">
+                    <img
+                      src={`${base}/avatars/${avatars[t.results[0].player]}.png`}
+                      alt={t.results[0].player}
+                      class="w-14 h-14 rounded-full object-cover border-2 border-gold-500/50 shrink-0"
+                    />
+                    <div>
+                      <p class="text-white font-medium">{t.results[0].player}</p>
+                      {t.results[0].points && (
+                        <p class="text-gray-500 text-sm">{t.results[0].points} pts</p>
+                      )}
+                    </div>
+                  </div>
                 </div>
                 {t.results.length > 1 && (
                   <div>
