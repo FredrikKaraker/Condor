@@ -14,6 +14,7 @@
         { "player": "Fredrik Karåker", "points": 18 },
         { "player": "Rasmus Gustafson", "points": 16 }
       ],
+      "weather": { "tempC": 10, "condition": "drizzle", "icon": "cloud-drizzle" },
       "notes": null,
       "chronicle": null
     },
@@ -34,6 +35,7 @@
         { "player": "Erik Larsson", "points": 10 },
         { "player": "Axel Philipson", "points": 1 }
       ],
+      "weather": { "tempC": 17, "condition": "drizzle", "icon": "cloud-drizzle" },
       "notes": "Sebastian Ahlström walked over due to sickness.",
       "chronicle": null
     },
@@ -48,6 +50,7 @@
       "results": [
         { "player": "Sebastian Ahlström", "points": null }
       ],
+      "weather": { "tempC": 10, "condition": "overcast", "icon": "cloud" },
       "notes": "No detailed scoring records available.",
       "chronicle": null
     },
@@ -69,6 +72,7 @@
         { "player": "Fredrik Karåker", "points": 8 },
         { "player": "Axel Philipson", "points": 7 }
       ],
+      "weather": { "tempC": 20, "condition": "partly rainy", "icon": "cloud-sun-rain" },
       "notes": null,
       "chronicle": null
     },
@@ -89,6 +93,7 @@
         { "player": "Rasmus Gustafson", "points": 11 },
         { "player": "Oscar Rosander", "points": 6 }
       ],
+      "weather": { "tempC": 12, "condition": "rainy", "icon": "cloud-rain" },
       "notes": null,
       "chronicle": null
     },
@@ -103,6 +108,7 @@
       "results": [
         { "player": "Erik Larsson", "points": null }
       ],
+      "weather": { "tempC": 3, "condition": "cold & dry", "icon": "snowflake" },
       "notes": "No detailed scoring records available.",
       "chronicle": null
     }

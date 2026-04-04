@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import WeatherIcon from '../../components/WeatherIcon.astro';
 import data from '../../data/tournaments.json';
 
 export function getStaticPaths() {
@@ -47,7 +48,7 @@ const avatars: Record<string, string> = {
     </div>
 
     <!-- Info cards -->
-    <div class="grid sm:grid-cols-2 gap-4 mb-10">
+    <div class="grid sm:grid-cols-3 gap-4 mb-10">
       <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6">
         <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Location</p>
         <p class="text-white">{t.location}</p>
@@ -60,6 +61,18 @@ const avatars: Record<string, string> = {
           ))}
         </div>
       </div>
+      {t.weather && (
+        <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6">
+          <p class="text-gold-600 text-xs font-medium tracking-wider uppercase mb-2">Weather</p>
+          <div class="flex items-center gap-3">
+            <WeatherIcon icon={t.weather.icon} class="w-8 h-8 text-gold-400" />
+            <div>
+              <p class="text-white text-lg font-medium">{t.weather.tempC}°C</p>
+              <p class="text-gray-400 text-sm capitalize">{t.weather.condition}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
 
     <!-- Champion highlight -->
