@@ -63,14 +63,14 @@
       "location": "Västervik",
       "courses": ["Västerviks Golf Ekhagen"],
       "results": [
-        { "player": "Rasmus Gustafson", "points": 36 },
-        { "player": "Sebastian Ahlström", "points": 25 },
-        { "player": "Erik Larsson", "points": 19 },
-        { "player": "David Wasserman", "points": 15 },
-        { "player": "Johan Bäckström", "points": 11 },
-        { "player": "Anthony Smith", "points": 10 },
-        { "player": "Fredrik Karåker", "points": 8 },
-        { "player": "Axel Philipson", "points": 7 }
+        { "player": "Rasmus Gustafson", "points": 36, "closest": 3, "longest": 3 },
+        { "player": "Sebastian Ahlström", "points": 25, "closest": 3, "longest": 1, "holeBonus": 2 },
+        { "player": "Erik Larsson", "points": 19, "closest": 5, "longest": 0 },
+        { "player": "David Wasserman", "points": 15, "closest": 0, "longest": 3 },
+        { "player": "Johan Bäckström", "points": 11, "closest": 0, "longest": 3 },
+        { "player": "Anthony Smith", "points": 10, "closest": 3, "longest": 2 },
+        { "player": "Fredrik Karåker", "points": 8, "closest": 3, "longest": 0, "deductions": 1 },
+        { "player": "Axel Philipson", "points": 7, "closest": 0, "longest": 5 }
       ],
       "weather": { "tempC": 20, "condition": "partly rainy", "icon": "cloud-sun-rain" },
       "notes": null,
