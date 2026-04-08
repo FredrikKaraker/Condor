@@ -15,7 +15,7 @@ npm run build     # Build to dist/
 
 - Hosted on **GitHub Pages** via GitHub Actions (`.github/workflows/deploy.yml`)
 - Auto-deploys on push to `main`
-- Base path is `/Condor` (configured in `astro.config.mjs`) — remove this when switching to a custom domain
+- Custom domain: `condorgilligan.se` (CNAME in `public/`)
 
 ## Project Structure
 
