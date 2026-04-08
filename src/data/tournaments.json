@@ -16,7 +16,7 @@
       ],
       "weather": { "tempC": 10, "condition": "drizzle", "icon": "cloud-drizzle" },
       "notes": null,
-      "chronicle": null
+      "recap": "**It all started with a vision.**\n\nA vision of something permanent through time, a tradition to cherish and uphold. A golf tournament not only about the game, but about the friendship and atmosphere surrounding it. A well-needed excuse to pause our everyday lives and the hustle and bustle that comes with it. A chance to get away for a few days and only focus on two things: the game of golf, and having a great time.\n\nIn the beginning they were four. Four friends collected from different eras of a man's life. Good friends, standing the test of time. The invitation was for two rounds of golf with a one-night overlay, but on the driving range a reveal was made. This wasn't just a few games of recreational golf — this was a tournament. Small in scale, but bold in concept. There were rules and prizes, a custom-made Winners Hat, and a name for the ages: Condor Gilligan Invitational.\n\nThe first edition of this tournament went on to be a raging success. On the field, the very much occasional golfer Calle impressed with his irons, and combined with a lot of extra strokes he proved hard to beat. Outside the course we enjoyed the classy facilities of Mauritzberg Manor — a dinner in one of the wings followed by a late night by the grand piano singing Kent and Oasis."
     },
     {
       "slug": "2022-villa-baro",
@@ -37,7 +37,7 @@
       ],
       "weather": { "tempC": 17, "condition": "drizzle", "icon": "cloud-drizzle" },
       "notes": "Sebastian Ahlström walked over due to sickness.",
-      "chronicle": null
+      "recap": "**The second year — the start of a tradition and the year of the Bao.**\n\nWe started with a night in Norrköping. People arrived just in time for dinner and we met up in the hotel bar. We headed out to The Lamp, supposed to be one of the best restaurants in town. The evening was a bit chill but we sat outside in the courtyard anyway. A lot of small courses were ordered, and some of us decided to go for the variations of bao buns that the menu had to offer. Not all of us were satisfied, to put it mildly — Anthony has not stopped talking about these very baos to this day and is apparently scarred for life. We hope you will get over it someday.\n\nEarly next morning we headed out to Norrköping/Söderköping Golf Club for the first round of the tournament. Not much is remembered from this round, but following up on his success from last year, Carl came out on top. Afterwards we headed for our accommodation at Villa Baro where we swiftly changed into bathrobes and headed for the spa area and some sauna. A great dinner followed, and the night ended with a game of pool and some drinks.\n\nThe next morning we played the golf course connected to the hotel, beautifully located by the lake, starting and finishing just metres from our rooms. It was a beautiful day, but in time for the last couple of holes a rainstorm swooped in, making the finish a real struggle. Soaked as we were, we headed straight to the changing rooms where Anthony, living up to being the pre-tournament favourite, received the Winners Hat from Calle to make his win official.\n\nAll in all, a great event!"
     },
     {
       "slug": "2023-gumbalde",
@@ -52,7 +52,7 @@
       ],
       "weather": { "tempC": 10, "condition": "overcast", "icon": "cloud" },
       "notes": "No detailed scoring records available.",
-      "chronicle": null
+      "recap": null
     },
     {
       "slug": "2024-vastervik",
@@ -74,7 +74,7 @@
       ],
       "weather": { "tempC": 20, "condition": "partly rainy", "icon": "cloud-sun-rain" },
       "notes": null,
-      "chronicle": null
+      "recap": null
     },
     {
       "slug": "2025-eskilstuna",
@@ -95,7 +95,7 @@
       ],
       "weather": { "tempC": 12, "condition": "rainy", "icon": "cloud-rain" },
       "notes": null,
-      "chronicle": null
+      "recap": null
     },
     {
       "slug": "2026-winter-stockholm",
@@ -110,7 +110,7 @@
       ],
       "weather": { "tempC": 3, "condition": "cold & dry", "icon": "snowflake" },
       "notes": "No detailed scoring records available.",
-      "chronicle": null
+      "recap": null
     }
   ],
   "players": [

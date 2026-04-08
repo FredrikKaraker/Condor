@@ -133,17 +133,19 @@ const avatars: Record<string, string> = {
       </div>
     )}
 
-    <!-- Chronicle placeholder -->
-    {t.chronicle ? (
+    <!-- Recap -->
+    {t.recap ? (
       <div class="mb-10">
-        <h2 class="font-serif text-xl text-gold-300 mb-4">Chronicle</h2>
+        <h2 class="font-serif text-xl text-gold-300 mb-4">Recap</h2>
         <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
-          <p class="text-gray-400 text-sm leading-relaxed">{t.chronicle}</p>
+          {t.recap.split('\n\n').map((paragraph: string) => (
+            <p class="text-gray-400 text-sm leading-relaxed mb-4 last:mb-0" set:html={paragraph.replace(/\*\*(.+?)\*\*/g, '<strong class="text-gold-300 font-semibold">$1</strong>')} />
+          ))}
         </div>
       </div>
     ) : (
       <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 text-center mb-10">
-        <p class="text-gray-500 text-sm italic">Chronicle coming soon.</p>
+        <p class="text-gray-500 text-sm italic">Recap coming soon.</p>
       </div>
     )}
   </section>

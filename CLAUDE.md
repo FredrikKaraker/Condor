@@ -48,7 +48,7 @@ public/
 
 This is the single source of truth for all tournament and player data. Both the history and participants pages read from it.
 
-**Adding a new tournament:** Add an entry to the `tournaments` array with slug, year, title, type (`summer`/`winter`), dates, location, courses, results, weather, and notes. Then add a `true`/`false` to every player's `events` array.
+**Adding a new tournament:** Add an entry to the `tournaments` array with slug, year, title, type (`summer`/`winter`), dates, location, courses, results, weather, notes, and recap. Then add a `true`/`false` to every player's `events` array.
 
 **Adding a new player:** Add an entry to the `players` array with name, hcp, and an `events` array matching the length of the tournaments array.
 
