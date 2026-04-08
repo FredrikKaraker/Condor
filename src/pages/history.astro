@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import SwedenMap from '../components/SwedenMap.astro';
 import WeatherIcon from '../components/WeatherIcon.astro';
 import data from '../data/tournaments.json';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const tournaments = [...data.tournaments].reverse();
 

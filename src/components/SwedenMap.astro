@@ -1,6 +1,6 @@
 ---
 import data from '../data/tournaments.json';
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // geoViewBox: "11.105169 69.061149 24.170696 55.338154"
 // This means: left_lng=11.105169, top_lat=69.061149, right_lng=24.170696, bottom_lat=55.338154
