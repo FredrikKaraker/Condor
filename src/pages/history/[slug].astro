@@ -139,7 +139,7 @@ const avatars: Record<string, string> = {
         <h2 class="font-serif text-xl text-gold-300 mb-4">Recap</h2>
         <div class="bg-green-900/30 border border-gold-800/20 rounded-lg p-6 sm:p-8">
           {t.recap.split('\n\n').map((paragraph: string) => (
-            <p class="text-gray-400 text-sm leading-relaxed mb-4 last:mb-0" set:html={paragraph.replace(/\*\*(.+?)\*\*/g, '<strong class="text-gold-300 font-semibold">$1</strong>')} />
+            <p class="text-gray-300 text-base leading-relaxed mb-4 last:mb-0" set:html={paragraph.replace(/\*\*(.+?)\*\*/g, '<strong class="text-gold-300 font-semibold">$1</strong>')} />
           ))}
         </div>
       </div>
