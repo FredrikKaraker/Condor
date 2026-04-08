@@ -85,11 +85,11 @@
       "location": "Eskilstuna",
       "courses": ["Eskilstuna GK", "Strands GK"],
       "results": [
-        { "player": "Fredrik Karåker", "points": 26 },
-        { "player": "Johan Bäckström", "points": 21 },
-        { "player": "Anthony Smith", "points": 21 },
-        { "player": "Mikael Bäckman", "points": 19 },
-        { "player": "Erik Larsson", "points": 16 },
+        { "player": "Fredrik Karåker", "points": 26, "closest": 3, "longest": 3, "holeBonus": 3 },
+        { "player": "Johan Bäckström", "points": 21, "closest": 3 },
+        { "player": "Anthony Smith", "points": 21, "holeBonus": 4 },
+        { "player": "Mikael Bäckman", "points": 19, "closest": 3, "longest": 3 },
+        { "player": "Erik Larsson", "points": 16, "holeBonus": 2 },
         { "player": "Rasmus Gustafson", "points": 11 },
         { "player": "Oscar Rosander", "points": 6 }
       ],
@@ -114,16 +114,16 @@
     }
   ],
   "players": [
-    { "name": "Fredrik Karåker",    "hcp": "27.3",   "events": [true, true, true, true, true, true] },
-    { "name": "Rasmus Gustafson",   "hcp": "23.7", "events": [true, true, true, true, true, true] },
-    { "name": "Johan Bäckström",    "hcp": "28.7", "events": [true, true, true, true, true, true] },
-    { "name": "Erik Larsson",       "hcp": "15.2", "events": [false, true, true, true, true, true] },
-    { "name": "Anthony Smith",      "hcp": "11.2", "events": [false, true, true, true, true, true] },
-    { "name": "Carl Beling",        "hcp": "32.0", "events": [true, true, true, false, false, true] },
-    { "name": "Axel Philipson",     "hcp": "26.8", "events": [false, true, false, true, false, true] },
-    { "name": "Sebastian Ahlström", "hcp": null,   "events": [false, false, true, true, false, true] },
-    { "name": "Mikael Bäckman",     "hcp": "18.6", "events": [false, false, true, false, true, false] },
-    { "name": "Oscar Rosander",     "hcp": null,   "events": [false, false, false, false, true, false] },
-    { "name": "David Wasserman",    "hcp": null,   "events": [false, false, false, true, false, false] }
+    { "name": "Fredrik Karåker",    "nickname": "Sunk",      "hcp": "27.3", "events": [true, true, true, true, true, true] },
+    { "name": "Rasmus Gustafson",   "nickname": "Ralle",     "hcp": "23.7", "events": [true, true, true, true, true, true] },
+    { "name": "Johan Bäckström",    "nickname": "Bäckis",    "hcp": "28.7", "events": [true, true, true, true, true, true] },
+    { "name": "Erik Larsson",       "nickname": "Larre",    "hcp": "15.2", "events": [false, true, true, true, true, true] },
+    { "name": "Anthony Smith",      "nickname": "Tony",      "hcp": "11.2", "events": [false, true, true, true, true, true] },
+    { "name": "Carl Beling",        "nickname": "Calle",     "hcp": "32.0", "events": [true, true, true, false, false, true] },
+    { "name": "Axel Philipson",     "nickname": "PH",        "hcp": "26.8", "events": [false, true, false, true, false, true] },
+    { "name": "Sebastian Ahlström", "nickname": "Sebbe",     "hcp": null,   "events": [false, false, true, true, false, true] },
+    { "name": "Mikael Bäckman",     "nickname": "Micke",     "hcp": "18.6", "events": [false, false, true, false, true, false] },
+    { "name": "Oscar Rosander",     "nickname": null,        "hcp": null,   "events": [false, false, false, false, true, false] },
+    { "name": "David Wasserman",    "nickname": "Davve",     "hcp": null,   "events": [false, false, false, true, false, false] }
   ]
 }
