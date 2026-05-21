@@ -1,4 +1,24 @@
 {
+  "upcoming": {
+    "title": "Karlskoga",
+    "year": 2026,
+    "dates": "September 11–13, 2026",
+    "type": "summer",
+    "courses": ["Lanna Lodge", "Karlskoga GK"],
+    "participants": [
+      "Fredrik Karåker",
+      "Rasmus Gustafson",
+      "Johan Bäckström",
+      "Carl Beling",
+      "Erik Larsson",
+      "Anthony Smith",
+      "Axel Philipson",
+      "Mikael Bäckman",
+      "Sebastian Ahlström"
+    ],
+    "teaserHeading": "Into the woods!",
+    "teaserBody": "We're heading further west than ever before to sample the parkland courses of Närke. Two days of golf split between Lanna Lodge and Karlskoga GK — forests, fairways, and old friends on the lineup."
+  },
   "tournaments": [
     {
       "slug": "2021-mauritzberg",
