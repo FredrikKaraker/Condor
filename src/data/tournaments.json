@@ -133,7 +133,7 @@
         { "player": "Fredrik Karåker",    "points": 1 },
         { "player": "Sebastian Ahlström", "points": 0 }
       ],
-      "weather": null,
+      "weather": { "tempC": 18, "condition": "cloudy", "icon": "cloud" },
       "notes": null,
       "recap": null
     }
