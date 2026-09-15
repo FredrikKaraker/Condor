@@ -142,7 +142,7 @@ const avatars: Record<string, string> = {
                   </span>
                 )}
                 <span class="text-gray-400 tabular-nums min-w-[3ch] text-right">
-                  {r.points ? `${r.points}p` : '—'}
+                  {r.points != null ? `${r.points}p` : '—'}
                 </span>
               </span>
             </div>

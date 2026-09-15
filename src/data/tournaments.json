@@ -1,25 +1,5 @@
 {
-  "upcoming": {
-    "title": "Karlskoga",
-    "year": 2026,
-    "dates": "September 11–13, 2026",
-    "type": "summer",
-    "courses": ["Örebro City Golf & CC Mosjö", "Karlskoga GK"],
-    "participants": [
-      "Fredrik Karåker",
-      "Rasmus Gustafson",
-      "Johan Bäckström",
-      "Erik Larsson",
-      "Anthony Smith",
-      "Carl Beling",
-      "Axel Philipson",
-      "Mikael Bäckman",
-      "Sebastian Ahlström",
-      "Oscar Rosander"
-    ],
-    "teaserHeading": "Into the woods!",
-    "teaserBody": "We're heading further west than ever before to sample the parkland courses of Närke/Värmland."
-  },
+  "upcoming": null,
   "tournaments": [
     {
       "slug": "2021-mauritzberg",
@@ -132,19 +112,43 @@
       "weather": { "tempC": 3, "condition": "cold & dry", "icon": "snowflake" },
       "notes": "No detailed scoring records available.",
       "recap": "**The first CGI Winter Edition.**\n\nThe off-season is long in Sweden. Unbearably long. Luckily there are ways to at least dampen the longing and scratch the itch even when it is snowing sideways and the courses are closed.\n\n4 hours of simulator golf goes a long way — no walking, no searching for lost balls, no weather and no waiting for other groups. We took the opportunity and played a course in Canada, a fairly easy one but hard enough for the rusty winter golfers. We also did stroke play by mistake, adding some suspense throughout the round, but it also made it possible to go +5 on the first hole as I myself had to suffer through. The fact that we were not scattered along a golf course also enabled us to have standalone longest- and closest competitions where Erik proved hard to beat.\n\nAfter a nice time at RUFF we headed for the city for a well-deserved dinner. We ate delicious but rather spicy food at Surfers and then ended the night at the legendary rock bar Pub Anchor, where most of us had a hard time blending in with the regulars.\n\nMore Winter Editions to come!"
+    },
+    {
+      "slug": "2026-karlskoga",
+      "year": 2026,
+      "title": "Örebro / Karlskoga",
+      "type": "summer",
+      "dates": "September 11–13",
+      "location": "Örebro / Karlskoga",
+      "courses": ["Örebro City Golf & CC Mosjö", "Karlskoga GK"],
+      "results": [
+        { "player": "Rasmus Gustafson",   "points": 32, "closest": 3, "longest": 2 },
+        { "player": "Anthony Smith",      "points": 22, "longest": 2 },
+        { "player": "Carl Beling",        "points": 17, "closest": 3, "longest": 3 },
+        { "player": "Oscar Rosander",     "points": 15, "longest": 3 },
+        { "player": "Erik Larsson",       "points": 14, "longest": 6 },
+        { "player": "Johan Bäckström",    "points": 14 },
+        { "player": "Mikael Bäckman",     "points": 5, "holeBonus": 2 },
+        { "player": "Axel Philipson",     "points": 3, "longest": 3 },
+        { "player": "Fredrik Karåker",    "points": 1 },
+        { "player": "Sebastian Ahlström", "points": 0 }
+      ],
+      "weather": null,
+      "notes": null,
+      "recap": null
     }
   ],
   "players": [
-    { "name": "Fredrik Karåker",    "nickname": "Sunk",      "hcp": "27.3", "events": [true, true, true, true, true, true] },
-    { "name": "Rasmus Gustafson",   "nickname": "Ralle",     "hcp": "23.7", "events": [true, true, true, true, true, true] },
-    { "name": "Johan Bäckström",    "nickname": "Bäckis",    "hcp": "28.7", "events": [true, true, true, true, true, true] },
-    { "name": "Erik Larsson",       "nickname": "Larre",    "hcp": "15.2", "events": [false, true, true, true, true, true] },
-    { "name": "Anthony Smith",      "nickname": "Tony",      "hcp": "11.2", "events": [false, true, true, true, true, true] },
-    { "name": "Carl Beling",        "nickname": "Calle",     "hcp": "32.0", "events": [true, true, true, false, false, true] },
-    { "name": "Axel Philipson",     "nickname": "PH",        "hcp": "26.8", "events": [false, true, false, true, false, true] },
-    { "name": "Sebastian Ahlström", "nickname": "Sebbe",     "hcp": null,   "events": [false, false, true, true, false, true] },
-    { "name": "Mikael Bäckman",     "nickname": "Micke",     "hcp": "18.6", "events": [false, false, true, false, true, false] },
-    { "name": "Oscar Rosander",     "nickname": null,        "hcp": null,   "events": [false, false, false, false, true, false] },
-    { "name": "David Wasserman",    "nickname": "Davve",     "hcp": null,   "events": [false, false, false, true, false, false] }
+    { "name": "Fredrik Karåker",    "nickname": "Sunk",      "hcp": "27.3", "events": [true, true, true, true, true, true, true] },
+    { "name": "Rasmus Gustafson",   "nickname": "Ralle",     "hcp": "23.7", "events": [true, true, true, true, true, true, true] },
+    { "name": "Johan Bäckström",    "nickname": "Bäckis",    "hcp": "28.7", "events": [true, true, true, true, true, true, true] },
+    { "name": "Erik Larsson",       "nickname": "Larre",    "hcp": "14.3", "events": [false, true, true, true, true, true, true] },
+    { "name": "Anthony Smith",      "nickname": "Tony",      "hcp": "11.9", "events": [false, true, true, true, true, true, true] },
+    { "name": "Carl Beling",        "nickname": "Calle",     "hcp": "32.0", "events": [true, true, true, false, false, true, true] },
+    { "name": "Axel Philipson",     "nickname": "PH",        "hcp": "26.8", "events": [false, true, false, true, false, true, true] },
+    { "name": "Sebastian Ahlström", "nickname": "Sebbe",     "hcp": "15.2", "events": [false, false, true, true, false, true, true] },
+    { "name": "Mikael Bäckman",     "nickname": "Micke",     "hcp": "18.0", "events": [false, false, true, false, true, false, true] },
+    { "name": "Oscar Rosander",     "nickname": null,        "hcp": "28.1", "events": [false, false, false, false, true, false, true] },
+    { "name": "David Wasserman",    "nickname": "Davve",     "hcp": null,   "events": [false, false, false, true, false, false, false] }
   ]
 }
