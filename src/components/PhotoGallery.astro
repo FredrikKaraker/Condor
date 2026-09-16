@@ -16,7 +16,12 @@ const { photos } = Astro.props;
  */
 type Tile = 'unit' | 'feature' | 'wide' | 'tall';
 
-function tileFor(index: number, ratio: number): Tile {
+function tileFor(index: number, ratio: number, total: number): Tile {
+  // A short gallery has no room to absorb a big tile — the leftovers read as
+  // holes rather than as rhythm. Same near the end of any gallery, where a
+  // spanning tile leaves the last row half empty.
+  if (total < 12 || index >= total - 4) return 'unit';
+
   const beat = index % 11;
   if (beat === 0) return 'feature';
   if (beat === 4 && ratio > 1.2) return 'wide';
@@ -41,7 +46,7 @@ const sizesFor: Record<Tile, string> = {
 
 const tiles = photos.map((photo, i) => ({
   photo,
-  tile: tileFor(i, photo.width / photo.height),
+  tile: tileFor(i, photo.width / photo.height, photos.length),
 }));
 
 // Full-size variants for the lightbox, generated once at build time.
