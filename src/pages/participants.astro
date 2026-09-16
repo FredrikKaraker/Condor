@@ -27,6 +27,14 @@ for (const t of tournaments) {
   wins[winner] = (wins[winner] || 0) + 1;
 }
 
+// Sort by wins, then by number of appearances, then alphabetically
+const appearances = (p: (typeof players)[number]) => p.events.filter(Boolean).length;
+const ranked = [...players].sort((a, b) =>
+  (wins[b.name] ?? 0) - (wins[a.name] ?? 0) ||
+  appearances(b) - appearances(a) ||
+  a.name.localeCompare(b.name, 'sv')
+);
+
 // Get placement for a player in each tournament (null = didn't participate)
 function getPlacements(playerName: string): (number | null)[] {
   return tournaments.map((t) => {
@@ -65,12 +73,12 @@ function getPlacements(playerName: string): (number | null)[] {
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase">Player</p>
           <p class="text-gold-600 text-xs font-medium tracking-wider uppercase text-center">Results</p>
         </div>
-        {players.map((p, i) => {
+        {ranked.map((p, i) => {
           const placements = getPlacements(p.name);
           return (
             <div class:list={[
               'px-6 py-4 sm:grid sm:grid-cols-[1fr_auto] sm:gap-4 sm:items-center',
-              i < players.length - 1 && 'border-b border-gold-800/10',
+              i < ranked.length - 1 && 'border-b border-gold-800/10',
             ]}>
               <div class="flex items-center gap-3">
                 <img
