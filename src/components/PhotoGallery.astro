@@ -68,12 +68,10 @@ const lightboxPhotos = fullSize.map((img, i) => ({
 }));
 ---
 
-<section class="mb-10" aria-labelledby="gallery-heading">
-  <div class="flex items-baseline gap-4 mb-4">
-    <h2 id="gallery-heading" class="font-serif text-xl text-gold-300">Photos</h2>
-    <span class="h-px flex-1 bg-gradient-to-r from-gold-800/40 to-transparent"></span>
-    <span class="text-gold-600 text-xs font-medium tracking-wider uppercase">{photos.length} frames</span>
-  </div>
+<section class="mb-10" aria-label="Tournament photos">
+  <!-- No heading: the photos read as a continuation of the recap. The rule
+       fades from both ends so it isn't anchored to a title that isn't there. -->
+  <div class="h-px mb-8 bg-gradient-to-r from-transparent via-gold-800/40 to-transparent"></div>
 
   <!--
     Set the reveal flag before the grid is parsed: with JS the tiles start
