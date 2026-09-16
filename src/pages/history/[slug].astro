@@ -1,7 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import WeatherIcon from '../../components/WeatherIcon.astro';
+import PhotoGallery from '../../components/PhotoGallery.astro';
 import data from '../../data/tournaments.json';
+import type { ImageMetadata } from 'astro';
 
 export function getStaticPaths() {
   return data.tournaments.map((t) => ({
@@ -12,6 +14,17 @@ export function getStaticPaths() {
 
 const { tournament: t } = Astro.props;
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Photos live in src/photos/<slug>/ — drop files in the folder and they appear.
+const photoModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/photos/**/*.{jpg,jpeg,png}',
+  { eager: true },
+);
+
+const photos = Object.entries(photoModules)
+  .filter(([path]) => path.startsWith(`/src/photos/${t.slug}/`))
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([, mod]) => mod.default);
 
 const avatars: Record<string, string> = {
   'Fredrik Karåker': 'fredrik',
@@ -202,5 +215,8 @@ const avatars: Record<string, string> = {
         <p class="text-gray-500 text-sm italic">Recap coming soon.</p>
       </div>
     )}
+
+    <!-- Photos -->
+    {photos.length > 0 && <PhotoGallery photos={photos} />}
   </section>
 </Layout>
