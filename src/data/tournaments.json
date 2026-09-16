@@ -1,5 +1,6 @@
 {
   "upcoming": null,
+  "champion": { "slug": "2026-karlskoga", "photo": "053-dsc02231.jpg" },
   "tournaments": [
     {
       "slug": "2021-mauritzberg",

@@ -53,6 +53,24 @@ This is the single source of truth for all tournament and player data. Both the 
 
 **Adding a new player:** Add an entry to the `players` array with name, hcp, and an `events` array matching the length of the tournaments array.
 
+**The front page card** below the "What to Expect" section shows one of three things,
+in this order of precedence:
+
+1. `upcoming` is set → the Next Tournament card (title, dates, courses, teaser, field)
+2. otherwise `champion` is set → this year's winner, with a photo and light event info
+3. otherwise → a plain "Coming Soon" card
+
+`champion` only points at data that already exists:
+
+```json
+"champion": { "slug": "2026-karlskoga", "photo": "053-dsc02231.jpg" }
+```
+
+The name, score, dates, courses and podium are all read from the tournament with that
+`slug`, and `photo` is a filename from that tournament's folder in `src/photos/`. So
+once next year's event is announced, fill in `upcoming` and set `champion` to `null` —
+the front page switches over on its own, and no markup needs touching.
+
 ### rules.json
 
 Tournament rules in English (translated from Swedish originals). Structured by sections with rules and subsections. Supports basic markdown (**bold**, *italic*) in text.
